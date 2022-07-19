@@ -23,15 +23,10 @@ class AuthController extends Controller
                 'password'=>'required'
             ]);
 
-//        $credentials = $request->only('email','password');
-//        if(Auth::attempt($credentials)){
-//            return redirect()->intended('dashboard')->withSuccess('You are logged in.');
-//        }
-//        return redirect("login")->withSuccess('Check the email or password. Not valid.');
         $user = User::where('email', $request->email)->first();
         if($user){
             if(Hash::check($request->password, $user->password)){
-                return redirect()->route('loggin')->with('Success');
+                return redirect()->route('dashboard')->with('Success');
             }
         }
 //        dd($user);
@@ -54,11 +49,8 @@ class AuthController extends Controller
     }
 
     public function dashboard(){
-//        if (Auth::check()){
-//            return view('dashboard');
-//        }
-//        return redirect("dashboard")->with('Access not allowed.');
-        echo('Hello');
+
+        return view('auth.dashboard');
     }
 
     public function create(array $array){
