@@ -206,7 +206,7 @@
                                 Dashboard
                             </p>
                         </a>
-                        <a href="#" class="nav-link active">
+                        <a href="calendar" class="nav-link active">
                             <i class="nav-icon fas "></i>
                             <p>
                                 Calendar
@@ -261,28 +261,17 @@
 </div>
 
 
+
+
 <script src="plugins/jquery/jquery.min.js"></script>
-
 <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-
-
-
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-
-
-
-
 <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-
-
 <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-
 <script src="dist/js/adminlte.js?v=3.2.0"></script>
-
 <script src="dist/js/demo.js"></script>
-
 <script src="dist/js/pages/dashboard.js"></script>
+
+
 </body>
 </html>

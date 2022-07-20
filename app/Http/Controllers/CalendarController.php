@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class CalendarController extends Controller
 {
-    public function index(){
+        public function index(){
         $events = array();
         $logs = Log::all();
         foreach($logs as $log){
@@ -20,9 +20,8 @@ class CalendarController extends Controller
         return view('calendar.calendar',['events'=>$events]);
     }
 
-    public function store(Request $request)
+        public function store(Request $request)
     {
-//        if ($request->ajax()) {
             $request->validate([
                 'title' => 'required|string'
             ]);
@@ -33,6 +32,7 @@ class CalendarController extends Controller
             ]);
             return response()->json($log);
         }
+
         public function update(Request $request,$id)
         {
             $log = log::find($id);
@@ -45,5 +45,20 @@ class CalendarController extends Controller
                'start_date'=>$request->start_date,
                 'end_date'=>$request->end_date,
             ]);
+        }
+
+        public function destroy($id){
+            $log = log::find($id);
+            if(! $id){
+                return response()->json([
+                   'error'=>'Unable to locate the file'
+                ],404);
+            }
+            $log->delete();
+                return response()->json([
+                   'success',
+                   'id' => $id
+                ]);
+//            return $id;
         }
 }

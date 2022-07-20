@@ -121,8 +121,35 @@
                        console.log(error)
                     },
                 });
+            },
+            eventClick: function(event){
+                var id = event.id;
+
+               if(confirm('Do you want to remove the log?')){
+                   $.ajax({
+                       url: "{{ route('calendar.destroy','') }}" +'/'+ id,
+                       type: "DELETE",
+                       dataType: 'json',
+                       success: function(response)
+                       {
+                           var id = response.id
+                           // console.log(id)
+                           swal("Good job!", "Log Deleted!", "success");
+                           console.log($('#calendar').fullCalendar('removeEvents',id))
+                       },
+                       error: function (error)
+                       {
+                           console.log(error)
+                       },
+                   });
+               }
             }
+
         })
+        $('#logModal').on('hide.bs.modal', function () {
+            $('#title').val('');
+            $('#saveBtn').unbind();
+        });
     });
 </script>
 
