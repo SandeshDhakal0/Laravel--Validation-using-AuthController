@@ -23,3 +23,5 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('calendar',[CalendarController::class,'index'])->name('calendar.index');
 Route::view('cal','calendar.calendar');
+Route::post('calendar',[CalendarController::class,'store'])->name('calendar.store');
+Route::patch('calendar/update/{id}',[CalendarController::class,'update'])->name('calendar.update');

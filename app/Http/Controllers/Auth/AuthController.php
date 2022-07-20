@@ -53,7 +53,7 @@ class AuthController extends Controller
         return view('auth.dashboard');
     }
 
-    public function create(array $array){
+    public function create(array $array, $data){
         return User::create([
            'name'=>$data['name'],
             'email'=>$data['email'],

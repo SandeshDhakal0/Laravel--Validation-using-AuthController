@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Log extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['title','start_date', 'end_date'];
 }
